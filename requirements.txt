@@ -1,2 +1,2 @@
 openpyxl
-telebot
+telegram_bot_API
