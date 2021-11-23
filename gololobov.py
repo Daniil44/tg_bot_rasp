@@ -1,7 +1,6 @@
 import telebot
 import openpyxl
 from random import randint
-from dotenv import load_dotenv
 from pathlib import Path
 import os
 book = openpyxl.open("o.xltm", read_only=True)
