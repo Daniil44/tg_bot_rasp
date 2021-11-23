@@ -8,6 +8,7 @@ sheet = book.active
 substring = ['.', '[']
 wish = ['Доброго дня!', 'Удачи! ', 'У тебя получится!', 'Не сдавайся!', 'Пятерок!']
 bot = telebot.TeleBot('2013032423:AAFEzGyOuHQo0UY8KQEh8AND91A8m78AziQ')
+bot.remove_webhook()
 def check(word):
     if word == '-':
         return('-')
@@ -55,10 +56,6 @@ fr_s_l = check(sheet['C'+str(count1)].value)
 count2 = count1 + 2
 fr_t_l = check(sheet['C'+str(count2)].value)
 wish = ['Доброго дня!', 'Удачи! ', 'У тебя получится!', 'Не сдавайся!', 'Пятерок!']
-load_dotenv()
-env_path = Path('API')/'.env'
-load_dotenv(dotenv_path=env_path)
-TOKEN = os.getenv("TOKEN")
 
 @bot.message_handler(commands=['help'])
 def help(message):
