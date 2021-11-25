@@ -4,8 +4,7 @@ from dotenv import load_dotenv
 from random import randint
 from pathlib import Path
 import os
-from flask import Flask, request
-server = Flask(__name__)
+
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
 book = openpyxl.open("o.xltm", read_only=True)
@@ -97,10 +96,4 @@ def timetable5(message):
 @bot.message_handler(commands=['start'])
 def start_command(message):
     bot.send_message(message.chat.id, 'Привет! В этом боте есть расписание уроков пятого класса монтессори! Введи: /help для подробной информации.')
-#bot.polling()
-@server.route("/")
-def webhook():
-    bot.remove_webhook()
-    bot.set_webhook(url="https://dashboard.heroku.com/apps/montessory-tg-bot") # этот url нужно заменить на url вашего Хероку приложения
-    return "?", 200
-server.run(host="0.0.0.0", port=os.environ.get('PORT', 80))
+bot.polling()
