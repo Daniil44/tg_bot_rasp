@@ -5,6 +5,7 @@ from random import randint
 from pathlib import Path
 import os
 from flask import Flask, request
+server = Flask(__name__)
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
 book = openpyxl.open("o.xltm", read_only=True)
